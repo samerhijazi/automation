@@ -1,0 +1,37 @@
+{
+  "name": "sogeti",
+  "version": "0.0.0",
+  "description": "Automation Task",
+  "main": "index.js",
+  "dependencies": {
+    "allure-commandline": "^2.13.0",
+    "jasmine-allure-reporter": "^1.0.2",
+    "jasmine-spec-reporter": "^5.0.2",
+    "mkdirp": "^1.0.4",
+    "newman": "^4.6.1",
+    "newman-reporter-allure": "^1.0.5",
+    "newman-reporter-html": "^1.0.5",
+    "protractor": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "driver-status": "webdriver-manager status",
+    "driver-update": "webdriver-manager update --ignore_ssl --standalone false --gecko false",
+    "driver-update:locl": "webdriver-manager update --ignore_ssl --proxy http://pro-campus.noc.fiducia.de:8080 --versions.chrome=81.0.4044.92 --standalone false --gecko false",
+    "test-ui": "protractor ./ui/conf-ui.js",
+    "test-api:locl": "newman run ./api/test-api.json",
+    "test-api": "newman run ./api/test-api.json --bail --disable-unicode -r junit,allure --reporter-junit-export ./reports/backend/junit.xml --reporter-allure-export ./reports/backend || error=true",
+    "test-all": "npm install && npm run driver-update && npm run driver-status && npm run test-ui",
+    "setup": "rm -rf ./node_modules && rm -rf ./reports/ && npm install && npm run driver-update",
+    "down":"rm -rf ./node_modules && rm -rf ./reports/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samerhijazi/sogeti.git"
+  },
+  "keywords": [
+    "keywords"
+  ],
+  "author": "Samer Hijazi",
+  "license": "ISC"
+}

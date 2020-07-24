@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "7bf4a4cf-bca4-4c45-9b6a-58f4b9d99037",
+		"name": "Automation-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Stuttgart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "efe232fb-d036-4736-9dce-66f08af32eef",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content type is JSON\", function () {    \r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.test(\"Verify country is Germany\", function () {    \r",
+							"    pm.expect(jsonData.country).to.eql(\"Germany\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify state is Baden-Württemberg\", function () {    \r",
+							"    pm.expect(jsonData.state).to.eql(\"Baden-Württemberg\");\r",
+							"});\r",
+							"\r",
+							"pm.test('Post Code \"70597\" has place name \"Stuttgart Degerloch\"', function () {    \r",
+							"    var placeCodeIndex = jsonData.places.map(\r",
+							"        function(places) {return places[\"post code\"];}\r",
+							"        ).indexOf(\"70597\");\r",
+							"    var placeCode = jsonData.places[placeCodeIndex];     \r",
+							"    pm.expect(placeCode[\"place name\"]).to.eql(\"Stuttgart Degerloch\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.zippopotam.us/de/bw/stuttgart",
+					"protocol": "http",
+					"host": [
+						"api",
+						"zippopotam",
+						"us"
+					],
+					"path": [
+						"de",
+						"bw",
+						"stuttgart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Beverly Hills",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ba06234-e0df-458f-97a8-92dbb47a9efb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content type is JSON\", function () {    \r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Place Name eqls Country and Postal Code for Beverly Hills\", function () {\r",
+							"    pm.expect(jsonData.places[0]).to.have.property(\"place name\", \"Beverly Hills\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.zippopotam.us/us/90210",
+					"protocol": "http",
+					"host": [
+						"api",
+						"zippopotam",
+						"us"
+					],
+					"path": [
+						"us",
+						"90210"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schenectady",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b22e79a-6dc6-4efe-8680-8d3909255f83",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content type is JSON\", function () {    \r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Place Name eqls Country and Postal Code for Schenectady\", function () {\r",
+							"    pm.expect(jsonData.places[0]).to.have.property(\"place name\", \"Schenectady\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.zippopotam.us/us/12345",
+					"protocol": "http",
+					"host": [
+						"api",
+						"zippopotam",
+						"us"
+					],
+					"path": [
+						"us",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Waverley",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7a5f5f3-2ce2-45ad-9291-da8ffe7ee485",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content type is JSON\", function () {    \r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Place Name eqls Country and Postal Code for Waverley\", function () {\r",
+							"    pm.expect(jsonData.places[0]).to.have.property(\"place name\", \"Waverley\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.zippopotam.us/ca/B2R",
+					"protocol": "http",
+					"host": [
+						"api",
+						"zippopotam",
+						"us"
+					],
+					"path": [
+						"ca",
+						"B2R"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8c1aee67-8a50-4047-9f64-274945b8b4c0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "81d866c0-cf43-43b1-9258-d4134753f9c3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
