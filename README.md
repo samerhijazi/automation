@@ -11,15 +11,15 @@ Dieses Projekt stellt eine automatische Testdurchführung für API und UI dar. D
 
 # Durchführung
 
-Um die automatisierten Tests durchzuführen ist es erfolderlich, das NodeJS-Framework (ab Version 10.15.3) lokal auf dem Rechner zu installieren. Dies kann man aus der folgende Seite (<https://nodejs.org/en/download/>) runtergeladen und installieren werden.
+Um die automatisierten Tests durchzuführen ist es erfolderlich, das NodeJS-Framework (ab Version 10.15.3) lokal auf dem Rechner zu installieren. Dies kann man aus der folgende Seite (<https://nodejs.org/en/download/>) runterladen und dann installieren.
 
-Das Projekt kann mit dem folgenden Befehl runterladen werden:
+Das Projekt kann man mit dem folgenden Befehl runterladen:
 
 ```
 git clone https://github.com/samerhijazi/automation.git
 ```
 
-Die Testdurchführung für API und UI kann mit dem folgenden Befehl gestartet werden:
+Die Testdurchführung für API und UI kann man mit dem folgenden Befehl starten:
 
 ```
 npm run test-all:local
