@@ -1,11 +1,10 @@
 # Automation
 
 # Prerequisites
+- Dokcer: https://docs.docker.com/engine/install/
+- Node.JS: https://nodejs.org/en/download/
 - node -v (v10.15.3)
 - npm -v (6.4.1)
-
--Dokcer: https://docs.docker.com/engine/install/
--Node.JS: https://nodejs.org/en/download/
 
 # Unter Linux
 - docker run -v "$PWD":/sogeti -w /sogeti node:alpine3.10 npm install

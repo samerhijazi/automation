@@ -18,12 +18,12 @@
     "driver-status": "webdriver-manager status",
     "driver-update": "webdriver-manager update --ignore_ssl --standalone false --gecko false",
     "driver-update:locl": "webdriver-manager update --ignore_ssl --proxy http://pro-campus.noc.fiducia.de:8080 --versions.chrome=81.0.4044.92 --standalone false --gecko false",
-    "test-ui": "protractor ./ui/conf-ui.js",
-    "test-api:locl": "newman run ./api/test-api.json",
-    "test-api": "newman run ./api/test-api.json --bail --disable-unicode -r junit,allure --reporter-junit-export ./reports/backend/junit.xml --reporter-allure-export ./reports/backend || error=true",
+    "test-ui": "protractor ./test-ui/test-ui-conf.js",
+    "test-api:locl": "newman run ./test-api/test-api.json",
+    "test-api": "newman run ./test-api/test-api.json --bail --disable-unicode -r junit,allure --reporter-junit-export ./reports/backend/junit.xml --reporter-allure-export ./reports/backend || error=true",
     "test-all": "npm install && npm run driver-update && npm run driver-status && npm run test-ui",
     "setup": "rm -rf ./node_modules && rm -rf ./reports/ && npm install && npm run driver-update",
-    "down":"rm -rf ./node_modules && rm -rf ./reports/"
+    "down": "rm -rf ./node_modules && rm -rf ./reports/"
   },
   "repository": {
     "type": "git",
