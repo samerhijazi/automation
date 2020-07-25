@@ -1,11 +1,19 @@
 FROM node:alpine3.10
 
-USER 0
-COPY . /sogeti
-WORKDIR /sogeti
-RUN npm install
-RUN npm run driver-update
-RUN npm run driver-status
+RUN apk update && apk add --no-cache nmap && \
+    echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
+    echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache \
+      chromium \
+      harfbuzz \
+      "freetype>2.8" \
+      ttf-freefont \
+      nss
 
-RUN npm run test-ui
-RUN npm run test-api
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
+RUN chown -R 1001:0 $HOME && \
+    chmod -R g+rw $HOME
+
+USER 1001

@@ -16,7 +16,8 @@
   "devDependencies": {},
   "scripts": {
     "driver-status": "webdriver-manager status",
-    "driver-update": "webdriver-manager update --ignore_ssl --standalone false --gecko false",
+    "driver-update:fdc": "webdriver-manager update --ignore_ssl --standalone false --gecko false",
+    "driver-update": "webdriver-manager update",
     "driver-update:locl": "webdriver-manager update --ignore_ssl --proxy http://pro-campus.noc.fiducia.de:8080 --versions.chrome=81.0.4044.92 --standalone false --gecko false",
     "test-ui": "protractor ./test-ui/test-ui-conf.js",
     "test-api:locl": "newman run ./test-api/test-api.json",
