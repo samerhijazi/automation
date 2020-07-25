@@ -1,20 +1,26 @@
 # Automation
 
-# Prerequisites
-- Dokcer: https://docs.docker.com/engine/install/
-- Node.JS: https://nodejs.org/en/download/
-- node -v (v10.15.3)
-- npm -v (6.4.1)
+Dieses Projekt stelle eine automatische Testdurchführung für UI und API dar. Die Testdurchführung basiert auf das NodeJS, Protactor, Postman und Newman.
 
-# Unter Linux
-- docker run -v "$PWD":/automation -w /automation samerhijazi/automation npm run setup
+# Inhalt-Beschreibung
 
-# Variants
-- docker build -t samerhijazi/automation .
-- docker run -v "$PWD":/sogeti -w /sogeti node:alpine3.10 npm install
-- docker run -v "$PWD":/sogeti -w /sogeti node:alpine3.10 sh -c 'npm install && npm run driver-status'
-- docker run -v "$PWD":/sogeti -w /sogeti node:alpine3.10 bash -c 'npm install && npm run driver-status'
+* Folder "test-ui": beinhaltet die Testfälle für UI.
+* Folder "test-api": beinhaltet die Testfälle für API.
+* Datei "[package.json](https://github.com/samerhijazi/automation/blob/master/package.json)": beinhaltet die Konfiguration des gesamten Projektes.
+* Datei "Dockerfile": beinhaltet die Beschreibung für die Verwendung in Docker-Container bzw. CI-CD. !!!!NOCH IN ARBEIT!!!
 
-# Unter Windows
-- docker run -v "%cd%":/sogeti -w /sogeti node:alpine3.10 npm iinstall
-- docker run -v "$PWD":/sogeti -w /sogeti ubuntu bash
+# Durchführung
+
+Um die automatisierten Tests durchzuführen ist es erfolderlich, das NodeJS Framework (ab Version 10.15.3) lokal auf dem Rechner zu installieren. Dies kann man aus der folgende Seite (<https://nodejs.org/en/download/>) runtergeladen und installieren werden.
+
+Das Projekt kann mit dem folgenden Befehl runterladen werden:
+
+```
+git clone https://github.com/samerhijazi/automation.git
+```
+
+Die Testdurchführung kann mit dem folgenden Befehl gestartet werden:
+
+```
+npm run test-all:local
+```

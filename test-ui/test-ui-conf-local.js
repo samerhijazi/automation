@@ -1,12 +1,12 @@
 exports.config = {
-  specs: ['./test-ui-tc3.js'],
+  specs: ['./test-ui-tc1.js', './test-ui-tc2.js', './test-ui-tc3.js'],
   directConnect: true,
   framework: 'jasmine2',
   allScriptsTimeout: 11000,
 
   capabilities: {
     browserName: 'chrome',
-    //chromeOptions: { args: ["--headless", "--disable-gpu", "--window-size=1200,900"] },
+    //chromeOptions: { args: ["--headless", "--disable-gpu", "--disable-translate", "--window-size=1200,900"] },
     chromeOptions: {args: [ "--disable-translate", "--window-size=1200,900" ]},
     acceptInsecureCerts: true,
     count: 1

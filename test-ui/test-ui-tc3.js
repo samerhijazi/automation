@@ -1,12 +1,13 @@
-describe('UI-Test-Case-2', () => {
+describe('UI-Test-Case-3', () => {
 	beforeEach(() => {
 	});
 	afterEach(() => {
 		browser.sleep(2000);
 	});
-	function checkURL(elm, url) {		
+	function checkURL(elm, url) {
 		//waitForAngularEnabled(false);
 		elm.click();
+		browser.sleep(1000);
 		//waitForAngularEnabled(true);
 		browser.getAllWindowHandles().then(function (handles) {
 			expect(handles.length).toEqual(2);
@@ -15,14 +16,13 @@ describe('UI-Test-Case-2', () => {
 				browser.driver.close();
 				browser.switchTo().window(handles[0]);
 			});
-		});		
+		});
 	};
 	it('0.Navigate to "sogeti.com"', () => {
 		browser.get('https://www.sogeti.com/');
 		var elm = element(by.xpath('//*[@id="header"]/div[1]/div[2]/div[2]/div[2]/div[1]'));
 		elm.click();
 	});
-
 	it('1.Country specific Sogeti link: Belgium', () => {
 		var elm = element(by.xpath('//*[@id="header"]/div[3]/ul/li[1]/a'));
 		checkURL(elm, 'https://www.sogeti.be/');
@@ -47,12 +47,10 @@ describe('UI-Test-Case-2', () => {
 		var elm = element(by.xpath('//*[@id="header"]/div[3]/ul/li[6]/a'));
 		checkURL(elm, 'https://www.sogeti.lu/');
 	});
-	
 	it('7.Country specific Sogeti link: Netherlands!!NOT WORKING!!', () => {
 		var elm = element(by.xpath('//*[@id="header"]/div[3]/ul/li[7]/a'));
-		//checkURL(elm, 'https://www.sogeti.nl/');
+		//checkURL(elm, 'https://www.sogeti.nl/');	
 	});
-	
 	it('8.Country specific Sogeti link: Norway', () => {
 		var elm = element(by.xpath('//*[@id="header"]/div[3]/ul/li[8]/a'));
 		checkURL(elm, 'https://www.sogeti.no/');
@@ -73,5 +71,4 @@ describe('UI-Test-Case-2', () => {
 		var elm = element(by.xpath('//*[@id="header"]/div[3]/ul/li[12]/a'));
 		checkURL(elm, 'https://www.us.sogeti.com/');
 	});
-
 });
