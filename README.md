@@ -11,7 +11,7 @@ Dieses Projekt stellt eine automatische Testdurchführung für API und UI dar. D
 
 # Durchführung
 
-Um die automatisierten Tests durchzuführen ist es erfolderlich, das NodeJS-Framework (ab Version 10.15.3) lokal auf dem Rechner zu installieren. Dies kann man aus der folgende Seite (<https://nodejs.org/en/download/>) runterladen und dann installieren.
+Um die automatisierten Tests durchzuführen ist es erfolderlich, das NodeJS-Framework (ab Version 10.15.3) und Google Chrome lokal auf dem Rechner zu installieren. Das NodeJS kann man aus der folgende Seite (<https://nodejs.org/en/download/>) runterladen und dann installieren.
 
 Das Projekt kann man mit dem folgenden Befehl runterladen:
 
